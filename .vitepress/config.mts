@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vuxel",
+  base: "/vuxel/",
   description: "A lightweight, component-based UI framework for Roblox",
   head: [['link', { rel: 'icon', href: '/Vuxel.ico' }]],
   themeConfig: {
