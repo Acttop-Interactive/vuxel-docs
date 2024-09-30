@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const src = path.join(__dirname, 'Vuxel.png');
-const dest = path.join(__dirname, '.vitepress', 'dist', 'Vuxel.png');
+fs.copyFileSync(path.join(__dirname, 'Vuxel.png'), path.join(__dirname, '.vitepress', 'dist', 'Vuxel.png'));
+fs.copyFileSync(path.join(__dirname, 'favicon.ico'), path.join(__dirname, '.vitepress', 'dist', 'favicon.ico'));
 
-fs.copyFileSync(src, dest);
-console.log('Vuxel.png copied to .vitepress/dist');
+console.log('Assets copied successfully!');
