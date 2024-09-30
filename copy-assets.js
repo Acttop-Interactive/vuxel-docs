@@ -5,4 +5,4 @@ const src = path.join(__dirname, 'Vuxel.png');
 const dest = path.join(__dirname, '.vitepress', 'dist', 'Vuxel.png');
 
 fs.copyFileSync(src, dest);
-console.log('Vuxel copied to .vitepress/dist');
+console.log('Vuxel.png copied to .vitepress/dist');
