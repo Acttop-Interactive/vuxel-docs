@@ -7,7 +7,7 @@ export default defineConfig({
   description: "A lightweight, component-based UI framework for Roblox",
   head: [['link', { rel: 'icon', href: '/Vuxel.ico' }]],
   themeConfig: {
-    logo: '/Vuxel.ico',
+    logo: './Vuxel.ico',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/docs/gs' },
@@ -29,6 +29,7 @@ export default defineConfig({
         items: [
           { text: 'State', link: '/docs/ref/state' },
           { text: 'Components', link: '/docs/ref/components' },
+          { text: 'References', link: '/docs/ref/references' },
           { text: 'Event Handling', link: '/docs/ref/events' },
           { text: 'Hooks', link: '/docs/ref/hooks' },
           { text: 'Utility Functions', link: '/docs/ref/utility' },
