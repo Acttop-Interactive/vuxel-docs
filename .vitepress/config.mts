@@ -5,9 +5,9 @@ export default defineConfig({
   title: "Vuxel",
   base: "/vuxel/",
   description: "A lightweight, component-based UI framework for Roblox",
-  head: [['link', { rel: 'icon', href: '/Vuxel.ico' }]],
+  head: [['link', { rel: 'icon', href: '/Vuxel.png' }]],
   themeConfig: {
-    logo: './Vuxel.ico',
+    logo: '/Vuxel.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/docs/gs' },

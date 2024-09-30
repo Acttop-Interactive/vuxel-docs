@@ -6,7 +6,7 @@ hero:
   name: "Vuxel"
   tagline: "A lightweight, component-based UI framework for Roblox"
   image:
-    src: /Vuxel.ico
+    src: /Vuxel.png
     alt: VitePress
   actions:
     - theme: brand
