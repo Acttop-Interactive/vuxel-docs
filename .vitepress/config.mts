@@ -5,7 +5,7 @@ export default defineConfig({
   title: "Vuxel",
   base: "/vuxel/",
   description: "A lightweight, component-based UI framework for Roblox",
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/vuxel/favicon.ico' }]],
   cleanUrls: true,
   themeConfig: {
     logo: '/Vuxel.png',
@@ -35,6 +35,13 @@ export default defineConfig({
           { text: 'Hooks', link: '/docs/ref/hooks' },
           { text: 'Utility Functions', link: '/docs/ref/utility' },
           { text: 'Animations', link: '/docs/ref/animations' }
+        ]
+      },
+      {
+        text: 'Exemples',
+        items: [
+          { text: 'A Simple Button', link: '/docs/ex/button' },
+          { text: 'Counter Application', link: '/docs/ex/counter' },
         ]
       }
     ],

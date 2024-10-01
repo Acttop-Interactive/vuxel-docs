@@ -5,6 +5,7 @@ Vuxel comes with the following dependencies:
 - State
 - Components
 - Event
+- References
 - Hooks
 - Animations
 - Utility
