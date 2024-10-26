@@ -3,6 +3,9 @@
 Vuxel is a lightweight, component-based UI framework for Roblox inspired by Vue.js. It provides a structured approach to building reactive UIs using state management, templating, and hooks.
 
 [![Latest Release](https://img.shields.io/github/v/release/OMouta/vuxel)](https://github.com/OMouta/vuxel/releases/latest)
+[![Contributors](https://img.shields.io/github/contributors/OMouta/vuxel)](https://github.com/OMouta/vuxel/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/OMouta/vuxel)](https://github.com/OMouta/vuxel/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/OMouta/vuxel)](https://github.com/OMouta/vuxel/pulls)
 
 ![Vuxel](https://github.com/user-attachments/assets/b84cf981-0775-4b2c-a172-a9213682ad9e)
 
