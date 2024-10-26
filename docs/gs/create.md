@@ -58,36 +58,37 @@ Vuxel uses a declarative syntax for defining UI components and their children. L
 
 ```lua
 local template = {
-    Class = "Frame",
-    Size = UDim2.new(1, 0, 1, 0),
-    BackgroundColor3 = Color3.fromRGB(240, 240, 240),
-    Children = {
-        {
-            Class = "TextLabel",
-            Name = "CounterLabel",
-            Text = Vuxel.Utility.Computed(function()
-                return "Count: " .. counter:Get()
-            end, counter), -- Automatically updates when `counter` changes
-            Size = UDim2.new(0, 200, 0, 50),
-            Position = UDim2.new(0.5, -100, 0.3, 0),
-            BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-            TextSize = 24
-        },
-        {
-            Class = "TextButton",
-            Name = "IncrementButton",
-            Text = "Increment",
-            Size = UDim2.new(0, 100, 0, 50),
-            Position = UDim2.new(0.5, -50, 0.6, 0),
-            BackgroundColor3 = Color3.fromRGB(100, 200, 100),
-            TextSize = 18,
-            Events = {
-                MouseButton1Click = function()
-                    counter:Set(counter:Get() + 1)
-                end
-            }
-        }
-    }
+	Class = "Frame",
+	Size = UDim2.new(1, 0, 1, 0),
+	BackgroundColor3 = Color3.fromRGB(240, 240, 240),
+	Children = {
+		{
+			Class = "TextLabel",
+			Name = "CounterLabel",
+			Text = Vuxel.Utility.Computed(function()
+				return "Count: " .. counter:Get()
+			end, counter), -- Automatically updates when `counter` changes
+			Size = UDim2.new(0, 200, 0, 50),
+			Position = UDim2.new(0.5, -100, 0.3, 0),
+			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+			TextSize = 24
+		},
+		{
+			Class = "TextButton",
+			Name = "IncrementButton",
+			Text = "Increment",
+			Size = UDim2.new(0, 200, 0, 50),
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			Position = UDim2.new(0.5, 0, 0.75, 0),
+			BackgroundColor3 = Color3.fromRGB(100, 200, 100),
+			TextSize = 18,
+			Events = {
+				MouseButton1Click = function()
+					counter:Set(counter:Get() + 1)
+				end
+			}
+		}
+	}
 }
 ```
 
@@ -119,14 +120,27 @@ You can easily extend this example by adding styles and animations using Vuxelâ€
 
 ### Example: Adding a Tween Animation on Click
 
-Modify the `MouseButton1Click` event to include a tween animation for the button.
+Modify the `MouseButton1Click` event to include a tween animation sequence for the button.
 
 ```lua
 Events = {
-    MouseButton1Click = function()
-        counter:Set(counter:Get() + 1)
-        Vuxel.Animation.Tween(ui.IncrementButton, {Size = UDim2.new(0, 120, 0, 60)}, 0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    end
+	MouseButton1Click = function()
+		counter:Set(counter:Get() + 1)
+		Vuxel.Animation.Sequence(Vuxel.GetRef("IncrementButton"), {
+			{
+				Properties = { Size = UDim2.new(0, 250, 0, 100) },
+				Duration = 0.1,
+				EasingStyle = Enum.EasingStyle.Quad,
+				EasingDirection = Enum.EasingDirection.Out
+			},
+			{
+				Properties = { Size = UDim2.new(0, 200, 0, 50) },
+				Duration = 0.1,
+				EasingStyle = Enum.EasingStyle.Quad,
+				EasingDirection = Enum.EasingDirection.Out
+			}
+		})
+	end
 }
 ```
 
