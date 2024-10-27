@@ -1,6 +1,5 @@
 local Components = {}
 local State = require(script.Parent.State)
-local Utility = require(script.Parent.Utility)
 local References = require(script.Parent.References)
 
 local lifecycleRegistry = setmetatable({}, { __mode = "k" }) -- Weak table to store lifecycle hooks
@@ -8,9 +7,8 @@ local lifecycleRegistry = setmetatable({}, { __mode = "k" }) -- Weak table to st
 -- Helper function to apply properties and bindings to instances
 local function applyProps(instance, props, self)
 	for prop, value in pairs(props) do
-		if prop ~= "Class" and prop ~= "Children" and prop ~= "Events" and prop ~= "Name" then
+		if prop ~= "Class" and prop ~= "Children" and prop ~= "Events" and prop ~= "Name" and prop ~= "Lifecycle" then
 			if typeof(value) == "table" and (getmetatable(value) == State or value.__computed) then
-				-- Automatically bind to the state or computed state and update when the value changes
 				value.Changed.Event:Connect(function(newValue)
 					instance[prop] = newValue
 				end)
@@ -62,42 +60,47 @@ end
 
 -- Modified `Template` function to include `self` scoping
 function Components.Template(template, parentSelf)
-	-- Create a new `self` table to hold references to child components
+	-- Create a new self table to hold references to child components
 	local self = parentSelf or {}
-
-	-- Create the main component
 	local className = template.Class or "Frame"  -- Default to "Frame" if no class is specified
+
+	-- Create the main component instance
 	local instance = Components.New(className, template, self)
 
-	-- Store the instance in `self` using its name (if provided)
+	-- Store the main instance in self under its specified name (if provided)
 	if template.Name then
 		self[template.Name] = instance
 		References.Add(template.Name, instance)
 	end
 
-	-- Recursively create and store children components in `self`
+	-- Recursively create child components and assign them as references in self
 	if template.Children then
 		for _, childTemplate in ipairs(template.Children) do
 			local childInstance = Components.Template(childTemplate, self)
 			childInstance.Parent = instance
+
+			-- Assign the child component to self based on its Name
+			if childTemplate.Name then
+				self[childTemplate.Name] = childInstance
+			end
 		end
 	end
 
-	-- Apply event handlers if specified and pass `self` as an argument
+	-- Apply event handlers if specified
 	if template.Events then
 		for event, handler in pairs(template.Events) do
 			if instance[event] then
 				instance[event]:Connect(function()
-					handler(self) -- Pass the `self` table to the event handler
+					handler(self) -- Pass the self table to the event handler
 				end)
 			end
 		end
 	end
 
-	-- Register lifecycle hooks with `self` reference
+	-- Register lifecycle hooks with self reference, if provided in Lifecycle property
 	if template.Lifecycle then
 		for hookName, callback in pairs(template.Lifecycle) do
-			RegisterLifecycleHook(instance, hookName, function()
+			Components.RegisterLifecycleHook(instance, hookName, function()
 				callback(self)
 			end)
 		end

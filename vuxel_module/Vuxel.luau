@@ -35,6 +35,7 @@ Vuxel.References = References
 -- Public Utility Functions
 Vuxel.RegisterLifecycleHook = Components.RegisterLifecycleHook
 Vuxel.RemoveComponent = Components.RemoveComponent
+Vuxel.ConnectEvent = Event.Connect
 
 -- Computed Properties and App Management
 Vuxel.Computed = Utility.Computed
@@ -69,6 +70,6 @@ Vuxel.SetRef = function(name, component)
 end
 
 -- Versioning Information
-Vuxel.Version = "0.2.1-alpha"
+Vuxel.Version = "0.3-alpha"
 
 return Vuxel

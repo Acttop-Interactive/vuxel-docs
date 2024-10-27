@@ -1,5 +1,6 @@
 local State = require(script.Parent.State)
 local References = require(script.Parent.References)
+local Components = require(script.Parent.Components)
 
 local Utility = {}
 
@@ -25,13 +26,20 @@ end
 
 -- Function to initialize a root frame and register it as the root reference
 function Utility.CreateApp(template)
+	-- Check if the template is not an instance (i.e., a raw table structure).
+	if typeof(template) == "table" and not template:IsA("Instance") then
+		warn("[Vuxel] Received a non-templated component. Wrapping with Vuxel.Template...")
+		template = Components.Template(template)  -- Automatically template the structure.
+	end
+	
+	-- Create a new ScreenGui
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.Name = "Vuxel_" .. tostring(tick())
 	screenGui.Parent = game.Players.LocalPlayer.PlayerGui
-	
+
 	template.Parent = screenGui
 
-	References.Add("Root", screenGui)
+	References.Add("Root", screenGui) -- Register the root frame as a reference
 
 	return screenGui
 end

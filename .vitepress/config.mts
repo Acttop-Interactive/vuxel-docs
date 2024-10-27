@@ -11,8 +11,8 @@ export default defineConfig({
     logo: '/Vuxel.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/docs/gs' },
-      { text: 'Reference', link: '/docs/ref' }
+      { text: 'Getting Started', link: '/docs/gs/introduction' },
+      { text: 'Reference', link: '/docs/ref/state' }
     ],
 
     sidebar: [

@@ -7,14 +7,14 @@ hero:
   tagline: "A lightweight, component-based UI framework for Roblox"
   image:
     src: /Vuxel.png
-    alt: VitePress
+    alt: Vuxel
   actions:
     - theme: brand
       text: Get started
-      link: /docs/gs
+      link: /docs/gs/introduction
     - theme: alt
       text: Learn more
-      link: /docs/ref
+      link: /docs/ref/state
 
 features:
   - title: Component-based
@@ -29,4 +29,3 @@ features:
     icon: 🕺
     details: Built-in support for animations. Create smooth, tween-based animations for UI elements with a single function.
 ---
-

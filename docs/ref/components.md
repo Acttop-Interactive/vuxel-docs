@@ -15,7 +15,7 @@ local myButton = Vuxel.Components.New("TextButton", {
 
 ## Components.Template(template)
 
-Creates a nested UI component structure from a table-based template.
+Creates a nested UI component structure from a `table-based template`.
 
 ::: tip
 You can also use `Vuxel.Template` instead!
