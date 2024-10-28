@@ -2,9 +2,9 @@
 
 The Utility module provides various helper functions.
 
-## Utility.CreateApp(UIFrame, screenGui (optional))
+## Utility.CreateApp(UIFrame, screenGui `optional`)
 
-Initializes a new app with the specified root frame, if no screenGui is given it will create a new `ScreenGui` and parent it to the LocalPlayer's PlayerGui.
+Initializes a new app with the specified root frame, if no screenGui is given it will create a new `ScreenGui` and parent it to the LocalPlayer's PlayerGui. Passed screenGui's will get an added reference as "`root`". Get it using `Vuxel.GetRef("root")`!
 
 ::: tip
 You can also use `Vuxel.CreateApp` instead!
