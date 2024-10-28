@@ -1,5 +1,5 @@
 -- Vuxel Module
--- Version: 0.2-alpha
+-- Version: 0.3.1-alpha
 -- Description: A lightweight component-based UI framework inspired by Vue.js for Roblox.
 -- Author: OMouta
 
@@ -70,6 +70,6 @@ Vuxel.SetRef = function(name, component)
 end
 
 -- Versioning Information
-Vuxel.Version = "0.3-alpha"
+Vuxel.Version = "0.3.1-alpha"
 
 return Vuxel

@@ -25,21 +25,24 @@ function Utility.Bind(...)
 end
 
 -- Function to initialize a root frame and register it as the root reference
-function Utility.CreateApp(template)
+function Utility.CreateApp(template : {} | Instance, screenGui : ScreenGui | nil)
 	-- Check if the template is not an instance (i.e., a raw table structure).
 	if typeof(template) == "table" and not template:IsA("Instance") then
 		warn("[Vuxel] Received a non-templated component. Wrapping with Vuxel.Template...")
 		template = Components.Template(template)  -- Automatically template the structure.
 	end
 	
-	-- Create a new ScreenGui
-	local screenGui = Instance.new("ScreenGui")
+	if not screenGui then
+		
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+		
+	end
+	
 	screenGui.Name = "Vuxel_" .. tostring(tick())
-	screenGui.Parent = game.Players.LocalPlayer.PlayerGui
-
 	template.Parent = screenGui
 
-	References.Add("Root", screenGui) -- Register the root frame as a reference
+	References.Add("Root", screenGui)
 
 	return screenGui
 end
