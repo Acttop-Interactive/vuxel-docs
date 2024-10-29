@@ -2,42 +2,65 @@
 
 The Animation module provides tween-based animation utilities for UI elements.
 
-## Animation.Tween
-
-```lua
-Animation.Tween(instance, properties, duration, easingStyle, easingDirection)
-```
-
-Creates and plays a tween animation on the specified UI element.
+## Animation.Tween(instance, properties, duration, easingStyle, easingDirection) -> `Tween`
 
 ### Parameters
+1. instance
+    - Type: `instance`
+    - Required: `Yes`
+    - Description: The UI element to animate.
+2. properties
+    - Type: `table`
+    - Required: `Yes`
+    - Description: A table of property values to animate towards.
+3. duration
+    - Type: `number`
+    - Required: `No`
+    - Description: Duration of the animation in seconds. Defaults to `0.5`.
+4. easingStyle
+    - Type: `Enum.EasingStyle`
+    - Required: `No`
+    - Description: Style of the animation easing. Defaults to `num.EasingStyle.Quad`.
+5. easingDirection
+    - Type: `Enum.EasingDirection`
+    - Required: `No`
+    - Description: Direction of the easing. Defaults to `num.EasingDirection.Out`.
 
-- **instance**: The UI element to animate.
-- **properties**: A table of property values to animate.
-- **duration**: (Optional) The duration of the animation in seconds.
-- **easingStyle**: (Optional) The easing style (default: `Enum.EasingStyle.Quad`).
-- **easingDirection**: (Optional) The easing direction (default: `Enum.EasingDirection.Out`).
+### Returns
+1. Tween
+    - Type: `Tween`
+    - Always: `Yes`
+    - Description: The created `Tween` object that is actively playing.
 
-### Example
+### Description
+
+Creates and plays a tween animation on the specified UI element.
 
 ```lua
 Vuxel.Animation.Tween(myButton, { Position = UDim2.new(0, 200, 0, 200) }, 1)
 ```
 
-## Animation.Sequence
-
-```lua
-Animation.Sequence(instance, tweenTable)
-```
-
-Creates and plays a tween animation sequence on the specified UI element.
+## Animation.Sequence(instance, sequenceTable) -> `void`
 
 ### Parameters
+1. instance
+    - Type: `instance`
+    - Required: `Yes`
+    - Description: The UI element to animate.
+2. sequenceTable
+    - Type: `table`
+    - Required: `Yes`
+    - Description: A table containing a series of animation steps, each with `Duration`, `asingStyle`, `EasingDirection`, and `Properties`.
 
-- **instance**: The UI element to animate.
-- **tweenTable**: A table of Animation Tweens
+### Returns
+1. void
+    - Type: `nil`
+    - Always: `Yes`
+    - Description: No return value; each tween in the sequence is played sequentially.
 
-### Example
+### Description
+
+Creates and plays a tween animation sequence on the specified UI element.
 
 ```lua
 Vuxel.Animation.Sequence(myButton, {

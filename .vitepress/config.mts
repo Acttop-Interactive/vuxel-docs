@@ -14,7 +14,6 @@ export default defineConfig({
       { text: 'Getting Started', link: '/docs/gs/introduction' },
       { text: 'Reference', link: '/docs/ref/state' }
     ],
-
     sidebar: [
       {
         text: 'Getting Started',
@@ -45,7 +44,6 @@ export default defineConfig({
         ]
       }
     ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/OMouta/vuxel' }
     ],
