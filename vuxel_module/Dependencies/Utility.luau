@@ -32,19 +32,21 @@ function Utility.CreateApp(template : {} | Instance, screenGui : ScreenGui | nil
 		template = Components.Template(template)  -- Automatically template the structure.
 	end
 	
+	local root = screenGui
+	
 	if not screenGui then
 		
-		local screenGui = Instance.new("ScreenGui")
-		screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+		root = Instance.new("ScreenGui")
+		root.Parent = game.Players.LocalPlayer.PlayerGui
 		
 	end
 	
-	screenGui.Name = "Vuxel_" .. tostring(tick())
-	template.Parent = screenGui
+	root.Name = "Vuxel_" .. tostring(tick())
+	template.Parent = root
 
-	References.Add("Root", screenGui)
+	References.Add("Root", root)
 
-	return screenGui
+	return root
 end
 
 -- Computed class and other utility methods
