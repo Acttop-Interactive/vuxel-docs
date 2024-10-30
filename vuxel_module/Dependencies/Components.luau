@@ -1,13 +1,25 @@
 local Components = {}
 local State = require(script.Parent.State)
 local References = require(script.Parent.References)
+local Style = require(script.Parent.Style)
 
 local lifecycleRegistry = setmetatable({}, { __mode = "k" }) -- Weak table to store lifecycle hooks
 
+local ignoredProps = {
+	ClassNames = true,
+	Style = true,
+	Class = true,
+	Children = true,
+	Events = true,
+	Name = true,
+	Lifecycle = true
+}
+
 -- Helper function to apply properties and bindings to instances
-local function applyProps(instance, props, self)
+local function applyProps(instance, props, self)	
 	for prop, value in pairs(props) do
-		if prop ~= "Class" and prop ~= "Children" and prop ~= "Events" and prop ~= "Name" and prop ~= "Lifecycle" then
+		-- Skip any properties listed in `ignoredProps`
+		if not ignoredProps[prop] then
 			if typeof(value) == "table" and (getmetatable(value) == State or value.__computed) then
 				value.Changed.Event:Connect(function(newValue)
 					instance[prop] = newValue
@@ -16,6 +28,21 @@ local function applyProps(instance, props, self)
 			else
 				instance[prop] = value -- Directly assign normal properties
 			end
+		end
+	end
+end
+
+-- Helper function to apply style properties to an instance
+local function applyStyle(instance, styleProps)
+	for prop, value in pairs(styleProps) do
+		if typeof(value) == "table" and not instance:FindFirstChild(prop) then
+			local childInstance = Instance.new(prop)
+			childInstance.Parent = instance
+			for childProp, childValue in pairs(value) do
+				childInstance[childProp] = childValue
+			end
+		else
+			instance[prop] = value
 		end
 	end
 end
@@ -46,6 +73,20 @@ end
 -- Function to create a new UI component
 function Components.New(class, props, self)
 	local instance = Instance.new(class)
+	
+	-- Fetch classNames, componentName, and inline Style prop if provided
+	local classNames = props.ClassNames
+	local componentName = props.Name or class
+	local inlineStyle = props.Style or {}
+	
+	-- Merge global, scoped, class-based, and inline styles
+	local styleProps = Style.GetStyle(componentName, classNames)
+	for prop, value in pairs(inlineStyle) do
+		styleProps[prop] = value  -- Inline styles take highest priority
+	end
+
+	-- Apply the merged styles and explicit props
+	applyStyle(instance, styleProps)
 	applyProps(instance, props, self)
 
 	-- Defer the `onMounted` call until after the component is parented

@@ -25,7 +25,14 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Reference',
+        text: 'Core Concepts',
+        items: [
+          { text: 'Component Properties', link: '/docs/core/component-properties' },
+          { text: 'Component Structure', link: '/docs/core/component-structure' }
+        ]
+      },
+      {
+        text: 'API Reference',
         items: [
           { text: 'State', link: '/docs/ref/state' },
           { text: 'Components', link: '/docs/ref/components' },
@@ -33,7 +40,8 @@ export default defineConfig({
           { text: 'Event Handling', link: '/docs/ref/events' },
           { text: 'Hooks', link: '/docs/ref/hooks' },
           { text: 'Utility Functions', link: '/docs/ref/utility' },
-          { text: 'Animations', link: '/docs/ref/animations' }
+          { text: 'Animations', link: '/docs/ref/animations' },
+          { text: 'Style', link: '/docs/ref/style' },
         ]
       },
       {

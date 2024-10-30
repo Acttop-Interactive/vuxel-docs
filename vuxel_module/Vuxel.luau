@@ -1,5 +1,5 @@
 -- Vuxel Module
--- Version: 0.3.1-alpha
+-- Version: 0.3.3-alpha
 -- Description: A lightweight component-based UI framework inspired by Vue.js for Roblox.
 -- Author: OMouta
 
@@ -13,6 +13,7 @@ local successUtility, Utility = pcall(function() return require(script.Utility) 
 local successAnimation, Animation = pcall(function() return require(script.Animations) end)
 local successHooks, Hooks = pcall(function() return require(script.Hooks) end)
 local successReferences, References = pcall(function() return require(script.References) end)
+local successStyle, Style = pcall(function() return require(script.Style) end)
 
 -- Error Checking for Module Imports
 if not successState then error("Failed to load Vuxel State module.") end
@@ -22,6 +23,7 @@ if not successUtility then error("Failed to load Vuxel Utility module.") end
 if not successAnimation then error("Failed to load Vuxel Animations module.") end
 if not successHooks then error("Failed to load Vuxel Hooks module.") end
 if not successReferences then error("Failed to load Vuxel References module.") end
+if not successStyle then error("Failed to load Vuxel Style module.") end
 
 -- Assigning Modules to Vuxel Table
 Vuxel.State = State
@@ -31,6 +33,7 @@ Vuxel.Utility = Utility
 Vuxel.Animation = Animation
 Vuxel.Hooks = Hooks
 Vuxel.References = References
+Vuxel.Style = Style
 
 -- Public Utility Functions
 Vuxel.RegisterLifecycleHook = Components.RegisterLifecycleHook
@@ -70,6 +73,6 @@ Vuxel.SetRef = function(name, component)
 end
 
 -- Versioning Information
-Vuxel.Version = "0.3.1-alpha"
+Vuxel.Version = "0.3.3-alpha"
 
 return Vuxel

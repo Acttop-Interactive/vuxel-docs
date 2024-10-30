@@ -25,7 +25,7 @@ features:
     icon: 📖
     details: State management and Computed properties that enable dependency tracking and memoization.
 
-  - title: Declarative Animation
-    icon: 🕺
-    details: Built-in support for animations. Create smooth, tween-based animations for UI elements with a single function.
+  - title: Easy Style
+    icon: 🎨
+    details: Style components using global, scoped and class-based styles for faster and easier development.
 ---
