@@ -102,7 +102,7 @@ local buttonTemplate = {
 
 ### 6. `ClassNames`
 - **Purpose**: Allows the application of reusable, predefined styles via class-based styling.
-- **Usage**: Define classes in `tyle.DefineClass`, then apply them by adding `ClassNames` as a table of class names.
+- **Usage**: Define classes in `Style.DefineClass`, then apply them by adding `ClassNames` as a table of class names.
 
 **Example**:
 ```lua
