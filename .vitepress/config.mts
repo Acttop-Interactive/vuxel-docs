@@ -3,9 +3,9 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vuxel",
-  base: "/vuxel/",
+  base: "/vuxel-docs/",
   description: "A lightweight, component-based UI framework for Roblox",
-  head: [['link', { rel: 'icon', href: '/vuxel/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/vuxel-docs/favicon.ico' }]],
   cleanUrls: true,
   themeConfig: {
     logo: '/Vuxel.png',
@@ -53,7 +53,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/OMouta/vuxel' }
+      { icon: 'github', link: 'https://github.com/Acttop-Interactive/vuxel' }
     ],
   }
 })

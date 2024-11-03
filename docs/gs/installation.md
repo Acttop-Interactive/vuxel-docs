@@ -11,7 +11,7 @@ Vuxel comes with the following dependencies:
 - Utility
 
 ## Step 1: Get the Vuxel Module
-Get the module from the [github latest release](https://github.com/OMouta/vuxel/releases/latest).
+Get the module from the [github latest release](https://github.com/Acttop-Interactive/vuxel/releases/latest).
 
 ## Step 2: Setting Up Vuxel in Roblox Studio
 Create a new Roblox Place or open an existing project in Roblox Studio.
