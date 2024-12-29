@@ -9,6 +9,7 @@ Vuxel components are defined in a table-based format, where each component’s s
 Each component is represented as a table, with keys like `Class`, `Name`, and specific properties such as `Size`, `Text`, or `BackgroundColor3`. Nested components can be included within the `Children` key, creating a tree-like structure.
 
 **Example**:
+
 ```lua
 {
     Class = "Frame",
@@ -32,6 +33,7 @@ Each component is represented as a table, with keys like `Class`, `Name`, and sp
 You can nest components inside each other using the `Children` property, which accepts an array of component tables. This allows you to build complex layouts while maintaining organized code.
 
 **Example**:
+
 ```lua
 {
     Class = "Frame",
@@ -54,6 +56,7 @@ You can nest components inside each other using the `Children` property, which a
 Each component table can contain properties specific to the component type, such as `Text` for a `TextLabel` or `BackgroundColor3` for a `Frame`. Event handling can be included in the `Events` property to allow interaction within the UI.
 
 **Example**:
+
 ```lua
 {
     Class = "TextButton",
@@ -69,10 +72,12 @@ Each component table can contain properties specific to the component type, such
 ### Component Styles with `Style` and `ClassNames`
 
 The `Style` and `ClassNames` properties allow for custom and reusable styling:
+
 - `Style`: Applies inline, component-specific styles.
 - `ClassNames`: Applies predefined classes from the `Style` module.
 
 **Example**:
+
 ```lua
 {
     Class = "TextButton",

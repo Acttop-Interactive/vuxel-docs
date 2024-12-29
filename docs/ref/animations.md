@@ -78,3 +78,41 @@ Vuxel.Animation.Sequence(myButton, {
 	}
 })
 ```
+
+## Animation.TweenGradient(gradient, fromSequence, toSequence, duration, easingStyle) -> `Tween`
+
+### Parameters
+1. instance
+    - Type: `gradient`
+    - Required: `Yes`
+    - Description: The UIgradient element to animate.
+2. fromSequence
+    - Type: `ColorSequence`
+    - Required: `Yes`
+    - Description: A ColorSequence to animate from.
+3. toSequence
+    - Type: `ColorSequence`
+    - Required: `Yes`
+    - Description: A ColorSequence to animate to.
+4. duration
+    - Type: `number`
+    - Required: `No`
+    - Description: Duration of the animation in seconds. Defaults to `0.5`.
+5. easingStyle
+    - Type: `Enum.EasingStyle`
+    - Required: `No`
+    - Description: Style of the animation easing. Defaults to `num.EasingStyle.Quad`.
+
+### Returns
+1. Tween
+    - Type: `Tween`
+    - Always: `Yes`
+    - Description: The created `Tween` object that is actively playing.
+
+### Description
+
+Creates and plays a tween animation on the specified UI element.
+
+```lua
+Vuxel.Animation.Tween(myButton, { Position = UDim2.new(0, 200, 0, 200) }, 1)
+```
