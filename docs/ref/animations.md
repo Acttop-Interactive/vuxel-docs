@@ -111,8 +111,22 @@ Vuxel.Animation.Sequence(myButton, {
 
 ### Description
 
-Creates and plays a tween animation on the specified UI element.
+Creates and plays a tween animation on the specified UIgradient element.
 
 ```lua
-Vuxel.Animation.Tween(myButton, { Position = UDim2.new(0, 200, 0, 200) }, 1)
+local starting_gradient = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromHex("#000000")),
+	ColorSequenceKeypoint.new(0.5, Color3.fromHex("#002050")),
+	ColorSequenceKeypoint.new(1, Color3.fromHex("#000000"))
+}
+
+local ending_gradient = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromHex("#000000")),
+	ColorSequenceKeypoint.new(0.25, Color3.fromHex("#0062ff")),
+	ColorSequenceKeypoint.new(0.5, Color3.fromHex("#0084ff")),
+	ColorSequenceKeypoint.new(0.75, Color3.fromHex("#0084ff")),
+	ColorSequenceKeypoint.new(1, Color3.fromHex("#000000"))
+}
+
+Vuxel.Animation.TweenGradient(grad, starting_gradient , ending_gradient , 1, Enum.EasingStyle.Linear)
 ```
