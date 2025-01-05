@@ -5,8 +5,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "copy-assets": "node copy-assets.js",
-    "deploy": "vitepress build && npm run copy-assets && gh-pages -d .vitepress/dist"
+    "deploy": "vitepress build && gh-pages -d .vitepress/dist"
   },
   "keywords": [],
   "author": "",

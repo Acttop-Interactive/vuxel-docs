@@ -8,6 +8,9 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/vuxel-docs/favicon.ico' }]],
   cleanUrls: true,
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     logo: '/Vuxel.png',
     nav: [
       { text: 'Home', link: '/' },
