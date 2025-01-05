@@ -12,6 +12,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/docs/gs/introduction' },
+      { text: 'Core Concepts', link: '/docs/core/component-properties' },
       { text: 'Reference', link: '/docs/ref/state' }
     ],
     sidebar: [
@@ -41,7 +42,7 @@ export default defineConfig({
           { text: 'Hooks', link: '/docs/ref/hooks' },
           { text: 'Utility Functions', link: '/docs/ref/utility' },
           { text: 'Animations', link: '/docs/ref/animations' },
-          { text: 'Style', link: '/docs/ref/style' },
+          { text: 'Style (BETA)', link: '/docs/ref/style' },
         ]
       },
       {
