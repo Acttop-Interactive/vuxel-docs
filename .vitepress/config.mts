@@ -45,7 +45,7 @@ export default defineConfig({
           { text: 'Hooks', link: '/docs/ref/hooks' },
           { text: 'Utility Functions', link: '/docs/ref/utility' },
           { text: 'Animations', link: '/docs/ref/animations' },
-          { text: 'Style (BETA)', link: '/docs/ref/style' },
+          { text: 'Style', link: '/docs/ref/style' },
         ]
       },
       {

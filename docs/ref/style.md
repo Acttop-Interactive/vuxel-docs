@@ -1,4 +1,4 @@
-# Style (BETA)
+# Style
 
 The Style module is used to re-create CSS way of styling UI components with scoped, global  and reusable class-based styles.
 
